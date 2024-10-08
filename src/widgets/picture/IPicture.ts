@@ -1,6 +1,5 @@
-import { IPage } from '../../shared/hooks/usePage/IPage';
+import { INoSearch } from '../../shared/ui/noSearch/INoSearch';
 
-export interface IPicture {
-	textFilter: string;
-	page: IPage;
+export interface IPicture extends INoSearch {
+	pageActive: number;
 }

@@ -4,7 +4,7 @@ import { ITheme } from './ITheme';
 const isDarkTheme = window?.matchMedia('(prefers-color-scheme: dark)').matches;
 const defaultTheme = isDarkTheme ? 'dark' : 'light';
 
-export const useTheme = (): ITheme => {
+const useTheme = (): ITheme => {
 	const [theme, setTheme] = useState(
 		localStorage.getItem('app-theme') || defaultTheme
 	);
@@ -16,3 +16,5 @@ export const useTheme = (): ITheme => {
 
 	return { theme, setTheme };
 };
+
+export default useTheme;

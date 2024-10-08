@@ -7,7 +7,7 @@ import searchLight from '../../../assets/icons/icon_light.svg';
 import { IPaginationItem } from './ISearch';
 import style from './search.module.scss';
 
-export const Search: FC<IPaginationItem> = ({ theme, setTextFilter }) => {
+const Search: FC<IPaginationItem> = function Search({ theme, setTextFilter }) {
 	const [value, setValue] = useState('');
 	const [focus, setFocus] = useState(false);
 
@@ -16,10 +16,11 @@ export const Search: FC<IPaginationItem> = ({ theme, setTextFilter }) => {
 			<div className={style.wrapper}>
 				<button
 					className={style.search}
+					type="button"
 					onSubmit={e => e.preventDefault()}
 				>
 					<img
-						src={theme == 'light' ? searchLight : searchDark}
+						src={theme === 'light' ? searchLight : searchDark}
 						alt="Кнопка поиска"
 					/>
 				</button>
@@ -36,23 +37,24 @@ export const Search: FC<IPaginationItem> = ({ theme, setTextFilter }) => {
 					onBlur={() => setFocus(false)}
 					className={style.search_area}
 				/>
-				{value && !focus ? (
+				{value && !focus && (
 					<button
 						className={style.close}
+						type="button"
 						onClick={() => {
 							setValue('');
 							setTextFilter('');
 						}}
 					>
 						<img
-							src={theme == 'light' ? deleteLight : deleteDark}
+							src={theme === 'light' ? deleteLight : deleteDark}
 							alt="Кнопка удаления текста"
 						/>
 					</button>
-				) : (
-					''
 				)}
 			</div>
 		</section>
 	);
 };
+
+export default Search;

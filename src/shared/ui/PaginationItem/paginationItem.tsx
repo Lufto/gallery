@@ -4,22 +4,23 @@ import { IPaginationItem } from './IPaginationItem';
 
 import style from './paginationItem.module.scss';
 
-export const PaginationItem: FC<IPaginationItem> = ({
+const PaginationItem: FC<IPaginationItem> = function PaginationItem({
 	current,
 	arrow,
 	active,
 	disable,
 	onClick,
-}) => {
+}) {
 	return (
 		<li>
 			<button
-				className={clsx(
-					arrow ? style.arrow : '',
-					active ? style.active : '',
-					disable ? style.disable : '',
-					!disable && !arrow && !active ? style.pagination_item : ''
-				)}
+				className={clsx({
+					[style.arrow]: arrow,
+					[style.active]: active,
+					[style.disable]: disable,
+					[style.pagination_item]: !disable && !arrow && !active,
+				})}
+				type="button"
 				onClick={onClick}
 			>
 				{current}
@@ -27,3 +28,5 @@ export const PaginationItem: FC<IPaginationItem> = ({
 		</li>
 	);
 };
+
+export default PaginationItem;

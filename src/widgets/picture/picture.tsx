@@ -3,62 +3,59 @@ import {
 	queryAuthors,
 	queryLocations,
 	queryPaintings,
-	URL,
 } from '../../shared/api/query';
-import { Error } from '../../shared/ui/error/error';
-import { Spinner } from '../../shared/ui/spinner/spinner';
-import { IPicture } from './IPicture';
-import style from './picture.module.scss';
 
-export const Picture: FC<IPicture> = ({ textFilter, page }) => {
+import { IPicture } from './IPicture';
+import Spinner from '../../shared/ui/spinner/spinner';
+import NoSearch from '../../shared/ui/noSearch/noSearch';
+import Error from '../../shared/ui/error/error';
+import PictureItem from '../../shared/ui/pictureItem/pictureItem';
+
+const Picture: FC<IPicture> = function Picture({ textFilter, pageActive }) {
 	const { paintings, errorPicture, loadPicture } = queryPaintings(
 		textFilter,
-		page.pageActive,
+		pageActive,
 		6
 	);
 	const { authors, errorAuthors, loadAuthors } = queryAuthors();
 	const { locations, errorLocations, loadLocations } = queryLocations();
 
-	return loadAuthors || loadLocations || loadPicture ? (
-		<Spinner />
-	) : errorPicture || errorAuthors || errorLocations ? (
-		<Error
-			manege={
-				'Ошибка загрузки. Перезагрузите страницу или повторите попытку позже'
-			}
-		/>
-	) : paintings?.length == 0 ? (
-		<section className={style.empty}>
-			<h2>
-				No matches for <span>{textFilter}</span>
-			</h2>
-			<p>Please try again with a different spelling or keywords.</p>
-		</section>
-	) : paintings && authors && locations ? (
-		<>
-			{paintings.map(e => {
-				return (
-					<li key={e.id}>
-						<img
-							src={`${URL}${e.imageUrl}`}
-							alt={e.name}
-							className={style.picture}
+	if (loadAuthors || loadLocations || loadPicture) {
+		return <Spinner />;
+	}
+
+	if (errorPicture || errorAuthors || errorLocations) {
+		return (
+			<Error manege="Ошибка загрузки. Перезагрузите страницу или повторите попытку позже" />
+		);
+	}
+
+	if (paintings?.length === 0) {
+		return <NoSearch textFilter={textFilter} />;
+	}
+
+	if (paintings && authors && locations) {
+		return (
+			<>
+				{paintings.map(
+					({ id, imageUrl, name, created, authorId, locationId }) => (
+						<PictureItem
+							key={id}
+							imageUrl={imageUrl}
+							name={name}
+							created={created}
+							authors={authors}
+							authorId={authorId}
+							locations={locations}
+							locationId={locationId}
 						/>
-						<div className={style.info_picture}>
-							<div className={style.info_picture__main}>
-								<h1>{e.name}</h1>
-								<time>{e.created}</time>
-							</div>
-							<div className={style.info_picture__secondary}>
-								<h1>{authors[e.authorId - 1].name}</h1>
-								<address>{locations[e.locationId - 1].location}</address>
-							</div>
-						</div>
-					</li>
-				);
-			})}
-		</>
-	) : (
-		''
-	);
+					)
+				)}
+			</>
+		);
+	}
+
+	return null;
 };
+
+export default Picture;

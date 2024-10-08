@@ -7,24 +7,28 @@ import { ITheme } from '../../shared/hooks/useTheme/ITheme';
 
 import style from './header.module.scss';
 
-export const Header: FC<ITheme> = ({ theme, setTheme }) => {
+const Header: FC<ITheme> = function Header({ theme, setTheme }) {
 	return (
 		<header className={style.container}>
 			<img
-				src={theme == 'light' ? logoLight : logoDark}
+				src={theme === 'light' ? logoLight : logoDark}
 				alt="Логотип"
 				className={style.logo}
 			/>
-			<div className={style.warper}>
+			<button
+				className={style.warper}
+				type="button"
+				onClick={() =>
+					theme === 'light' ? setTheme('dark') : setTheme('light')
+				}
+			>
 				<img
-					src={theme == 'light' ? themeLight : themeDark}
-					alt={theme == 'light' ? 'Светлая тема' : 'Тёмная тема'}
-					onClick={() =>
-						theme == 'light' ? setTheme('dark') : setTheme('light')
-					}
+					src={theme === 'light' ? themeLight : themeDark}
+					alt={theme === 'light' ? 'Светлая тема' : 'Тёмная тема'}
 					className={style.theme}
 				/>
-			</div>
+			</button>
 		</header>
 	);
 };
+export default Header;

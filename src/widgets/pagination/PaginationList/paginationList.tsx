@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { IPage } from '../../../shared/hooks/usePage/IPage';
-import { PaginationItem } from '../../../shared/ui/PaginationItem/paginationItem';
+import PaginationItem from '../../../shared/ui/paginationItem/paginationItem'
 
-export const PaginationList: FC<IPage> = ({
+const PaginationList: FC<IPage> = function PaginationList({
 	pageActive,
 	allCurrentPage,
 	setPageActive,
-}) => {
+}) {
 	const createPaginationItem = (page: number | string, disable = false) => (
 		<PaginationItem
 			key={page}
@@ -26,7 +26,7 @@ export const PaginationList: FC<IPage> = ({
 	for (
 		let i = Math.max(2, pageActive - 1);
 		i <= Math.min(allCurrentPage - 1, pageActive + 1);
-		i++
+		i += 1
 	) {
 		paginationItems.push(createPaginationItem(i));
 	}
@@ -36,5 +36,7 @@ export const PaginationList: FC<IPage> = ({
 
 	paginationItems.push(createPaginationItem(allCurrentPage));
 
-	return <>{paginationItems}</>;
+	return paginationItems;
 };
+
+export default PaginationList;

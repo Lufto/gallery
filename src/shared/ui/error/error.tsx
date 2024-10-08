@@ -1,6 +1,8 @@
+import { FC } from 'react';
 import style from './error.module.scss';
+import { IError } from './IError';
 
-export const Error = ({ manege }: { manege: string }) => {
+const Error: FC<IError> = function Error({ manege }) {
 	return (
 		<section className={style.wrapper}>
 			<svg
@@ -16,3 +18,5 @@ export const Error = ({ manege }: { manege: string }) => {
 		</section>
 	);
 };
+
+export default Error;

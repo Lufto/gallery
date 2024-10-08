@@ -1,0 +1,39 @@
+.empty {
+	text-align: start;
+	margin-top: 60px;
+	h2 {
+		font-family: Inter;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 140%;
+		span {
+			font-weight: 500;
+		}
+	}
+	p {
+		margin-top: 12px;
+		font-family: Inter;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 140%;
+		color: var(--secondary-gray);
+	}
+}
+
+[data-theme='light'] {
+	.empty {
+		h2 {
+			color: var(--primary-gray-dark);
+		}
+	}
+}
+
+[data-theme='dark'] {
+	.empty {
+		h2 {
+			color: var(--primary-gray-light);
+		}
+	}
+}

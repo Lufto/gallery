@@ -1,8 +1,7 @@
 import { FC } from 'react';
-
 import style from './spinner.module.scss';
 
-export const Spinner: FC = () => {
+const Spinner: FC = function Spinner() {
 	return (
 		<section className={style.wrapper}>
 			<svg
@@ -26,7 +25,7 @@ export const Spinner: FC = () => {
 							keyTimes="0;0.475;0.95;1"
 							repeatCount="indefinite"
 							values="0 150;42 150;42 150;42 150"
-						></animate>
+						/>
 						<animate
 							attributeName="stroke-dashoffset"
 							calcMode="spline"
@@ -35,7 +34,7 @@ export const Spinner: FC = () => {
 							keyTimes="0;0.475;0.95;1"
 							repeatCount="indefinite"
 							values="0;-16;-59;-59"
-						></animate>
+						/>
 					</circle>
 					<animateTransform
 						attributeName="transform"
@@ -43,9 +42,11 @@ export const Spinner: FC = () => {
 						repeatCount="indefinite"
 						type="rotate"
 						values="0 12 12;360 12 12"
-					></animateTransform>
+					/>
 				</g>
 			</svg>
 		</section>
 	);
 };
+
+export default Spinner;
