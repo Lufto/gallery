@@ -1,0 +1,132 @@
+.empty {
+	text-align: start;
+	margin-top: 60px;
+	h2 {
+		font-family: Inter;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 140%;
+		span {
+			font-weight: 500;
+		}
+	}
+	p {
+		margin-top: 12px;
+		font-family: Inter;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 140%;
+		color: var(--secondary-gray);
+	}
+}
+
+[data-theme='light'] {
+	.empty {
+		h2 {
+			color: var(--primary-gray-dark);
+		}
+	}
+}
+
+[data-theme='dark'] {
+	.empty {
+		h2 {
+			color: var(--primary-gray-light);
+		}
+	}
+}
+
+li {
+	position: relative;
+	max-width: 352px;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 16 / 10;
+	background-size: cover;
+	overflow: hidden;
+	.picture {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		transition: all 1s;
+	}
+	.info_picture {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background-color: var(--primary);
+		max-width: 300px;
+		width: 85%;
+		height: 25%;
+		&__main,
+		&__secondary {
+			position: absolute;
+			display: flex;
+			align-items: flex-start;
+			left: 12px;
+			top: 8px;
+			bottom: 8px;
+			transition: all 0.7s;
+			h1 {
+				margin-bottom: 5px;
+				font-family: var(--font-Cormorant-SC);
+				color: var(--primary-text);
+				font-size: 12px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				text-transform: uppercase;
+			}
+			time,
+			address {
+				color: var(--accent);
+				font-family: var(--font-Inter);
+				font-size: 8px;
+				font-weight: 700;
+				font-style: normal;
+				text-transform: uppercase;
+			}
+		}
+		&__secondary {
+			left: -100%;
+		}
+	}
+}
+
+li:hover {
+	.picture {
+		transform: scale(1.1);
+	}
+	.info_picture {
+		.info_picture__secondary {
+			left: 12px;
+			top: 8px;
+			bottom: 8px;
+		}
+		.info_picture__main {
+			bottom: -200%;
+		}
+	}
+}
+
+@media screen and (min-width: 1023px) {
+	li {
+		position: relative;
+		max-width: 392px;
+		max-height: 260px;
+		overflow: hidden;
+		.info_picture {
+			height: 30%;
+			&::before {
+				content: '';
+				position: absolute;
+				width: 2px;
+				height: 42px;
+				left: 0;
+				background-color: var(--accent);
+			}
+		}
+	}
+}

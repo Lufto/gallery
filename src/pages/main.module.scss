@@ -1,0 +1,21 @@
+.picture_list {
+	max-width: 1240px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+	.picture_list {
+		gap: 24px;
+	}
+}
+
+@media screen and (min-width: 1366px) {
+	.picture_list {
+		gap: 32px;
+	}
+}
