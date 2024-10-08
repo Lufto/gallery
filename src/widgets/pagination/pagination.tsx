@@ -6,8 +6,9 @@ import arrowRightLight from '../../assets/icons/arrow-right-light.svg';
 import { IPage } from '../../shared/hooks/usePage/IPage';
 import { ITheme } from '../../shared/hooks/useTheme/ITheme';
 import PaginationItem from '../../shared/ui/paginationItem/paginationItem';
-import style from './pagination.module.scss';
 import PaginationList from './PaginationList/paginationList';
+
+import style from './pagination.module.scss';
 
 const Pagination: FC<IPage & ITheme> = function Pagination({
 	pageActive,

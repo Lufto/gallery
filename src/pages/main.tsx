@@ -6,6 +6,7 @@ import Search from '../shared/ui/search/search';
 import Header from '../widgets/header/header';
 import Pagination from '../widgets/pagination/pagination';
 import Picture from '../widgets/picture/picture';
+
 import style from './main.module.scss';
 
 function Main() {

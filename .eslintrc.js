@@ -6,6 +6,7 @@ module.exports = {
 	parserOptions: {
 		project: './tsconfig.eslint.json',
 	},
+	ignorePatterns: ['dist/'],
 	rules: {
 		'react/react-in-jsx-scope': 'off',
 		'import/no-extraneous-dependencies': [
