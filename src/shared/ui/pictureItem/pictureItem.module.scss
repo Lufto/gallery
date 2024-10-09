@@ -6,6 +6,7 @@ li {
 	aspect-ratio: 16 / 10;
 	background-size: cover;
 	overflow: hidden;
+	color: var(--primary-text);
 	.picture {
 		object-fit: cover;
 		width: 100%;

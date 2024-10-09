@@ -5,11 +5,11 @@ import {
 	queryPaintings,
 } from '../../shared/api/query';
 
-import { IPicture } from './IPicture';
-import Spinner from '../../shared/ui/spinner/spinner';
-import NoSearch from '../../shared/ui/noSearch/noSearch';
 import Error from '../../shared/ui/error/error';
+import NoSearch from '../../shared/ui/noSearch/noSearch';
 import PictureItem from '../../shared/ui/pictureItem/pictureItem';
+import Spinner from '../../shared/ui/spinner/spinner';
+import { IPicture } from './IPicture';
 
 const Picture: FC<IPicture> = function Picture({ textFilter, pageActive }) {
 	const { paintings, errorPicture, loadPicture } = queryPaintings(
