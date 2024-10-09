@@ -8,7 +8,9 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"lintFix": "eslint --fix . && prettier --write .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.56.2",
@@ -37,6 +39,7 @@
 		"eslint-plugin-react": "^7.37.0",
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"eslint-plugin-react-refresh": "^0.4.9",
+		"gh-pages": "^6.1.1",
 		"globals": "^15.9.0",
 		"prettier": "^3.3.3",
 		"sass": "^1.79.4",

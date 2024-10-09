@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IPage } from '../../../shared/hooks/usePage/IPage';
-import PaginationItem from '../../../shared/ui/paginationItem/paginationItem'
+import PaginationItem from '../../../shared/ui/paginationItem/paginationItem';
 
 const PaginationList: FC<IPage> = function PaginationList({
 	pageActive,
