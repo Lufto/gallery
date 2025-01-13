@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import themeLight from '../../assets/icons/dark_icon.svg';
 import themeDark from '../../assets/icons/light_icon.svg';
-import logoDark from '../../assets/icons/logo_dark.svg';
-import logoLight from '../../assets/icons/logo_light.svg';
+// import logoDark from '../../assets/icons/logo_dark.svg';
+// import logoLight from '../../assets/icons/logo_light.svg';
 import { ITheme } from '../../shared/hooks/useTheme/ITheme';
 
 import style from './header.module.scss';
@@ -10,11 +10,11 @@ import style from './header.module.scss';
 const Header: FC<ITheme> = function Header({ theme, setTheme }) {
 	return (
 		<header className={style.container}>
-			<img
+			{/* <img
 				src={theme === 'light' ? logoLight : logoDark}
 				alt="Логотип"
 				className={style.logo}
-			/>
+			/> */}
 			<button
 				className={style.warper}
 				type="button"
