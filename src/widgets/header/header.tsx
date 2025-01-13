@@ -10,11 +10,12 @@ import style from './header.module.scss';
 const Header: FC<ITheme> = function Header({ theme, setTheme }) {
 	return (
 		<header className={style.container}>
-			<img
+			<div></div>
+			/* <img
 				src={theme === 'light' ? logoLight : logoDark}
 				alt="Логотип"
 				className={style.logo}
-			/>
+			/> */
 			<button
 				className={style.warper}
 				type="button"
